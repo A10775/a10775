@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>じゃんけん</title>
+		<link rel="stylesheet" href="sample.css">
+	</head>
+
+	<body>
+		<script>
+			function janken(x){
+			 	var hand = ['グー','チョキ','パー'];
+				var rnd = Math.floor(Math.random() * 3); /*AI*/
+				var result = "";
+				if(x == 0){ /*人がグー*/
+					if(rnd == 0){ /*AIがグー*/
+						result = "あいこ";
+					} else if(rnd == 1){ /*AIがチョキ*/
+						result = "勝ち";
+					} else { /*AIがパー*/
+						result = "負け";
+					}
+				} else if(x == 1){ /*人がチョキ*/
+					if(rnd == 0){ /*AIがグー*/
+						result = "負け";
+					} else if(rnd == 1){ /*AIがチョキ*/
+						result = "あいこ";
+					} else { /*AIがパー*/
+						result = "勝ち";
+					}
+				} else { /*人がパー*/
+					if(rnd == 0){ /*AIがグー*/
+						result = "勝ち";
+					} else if(rnd == 1){ /*AIがチョキ*/
+						result = "負け";
+					} else { /*AIがパー*/
+						result = "あいこ";
+					}
+				}
+				alert("あなた：" + hand[x] + "\n" + "あいて：" + hand[rnd] + "\n" + "結果　：" + result);
+			}
+		</script>
+
+		<form>
+			<p>
+				<input type="button" value="グー" onclick="janken(0)">
+				<input type="button" value="チョキ" onclick = "janken(1)">
+				<input type="button" value="パー" onclick = "janken(2)">
+			</p>
+		</form>
+	</body>
+</html>
